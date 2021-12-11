@@ -1,2 +1,0 @@
-# SpaceX-api
-Assignments
