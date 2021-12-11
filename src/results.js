@@ -42,12 +42,13 @@ const UseLazyGetQuery = ({ closeModal, datas1 }) => {
             >
                 <div >
                   
-                    {data.launchesPast.map(({ launch_site,mission_name,links,rocket,id, launch_success }) => (
+                    {data.launchesPast.map(({ launch_site,mission_name,links,rocket,id }) => (
                        
                         <Box sx={style} key={id} >
                             <Typography id="modal-modal-title" variant="h6" component="h2">{mission_name}</Typography>
                             <Typography id="modal-modal-description" sx={{ mt: 2 }}>{launch_site.site_name_long}</Typography>
                             <Typography id="modal-modal-description" >{rocket.rocket_name}</Typography>
+                            <a href={links.article_link}>Article Link:{links.article_link}</a>
                             <img style={{ height: 420, width: '100%' }} src={links.flickr_images} alt="rockets"/>
                            
                         </Box>

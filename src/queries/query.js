@@ -26,11 +26,13 @@ query LoadMission1($launch:Date)
 {
   launchesPast(limit:1 ,find: { launch_date_local:$launch }) {
     mission_name
+    
     launch_site {
       site_name_long
     }
     links {
       flickr_images
+      article_link
     }
     rocket {
       rocket_name
