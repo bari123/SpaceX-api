@@ -1,15 +1,17 @@
 import { LoadMission1 } from "./queries/query";
 import React from 'react';
 import { useQuery } from "@apollo/client";
-import { Box, Typography,CardMedia } from "@material-ui/core";
+import { Box, Typography  } from "@material-ui/core";
 import { Modal } from '@mui/material';
+
 
 const style = {
     position: 'absolute',
     top: '50%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
-    width: 400,
+    width: 900,
+    height:500,
     bgcolor: 'background.paper',
     border: '2px solid #000',
     boxShadow: 24,
@@ -25,7 +27,7 @@ const UseLazyGetQuery = ({ closeModal, datas1 }) => {
     });
 
 
-    if (loading) { return <div><p>Loading....</p></div>; }
+    if (loading) { return <div><p>Loading...</p></div>; }
     if (error) { return <div><p>eror</p></div> }
 
     return (
@@ -39,17 +41,23 @@ const UseLazyGetQuery = ({ closeModal, datas1 }) => {
                 aria-describedby="modal-modal-description"
             >
                 <div >
-                    {data.launchesPast.map(({ launch_site,mission_name,id,ships }) => (
+                  
+                    {data.launchesPast.map(({ launch_site,mission_name,links,rocket,id, launch_success }) => (
+                       
                         <Box sx={style} key={id} >
                             <Typography id="modal-modal-title" variant="h6" component="h2">{mission_name}</Typography>
-                            <Typography id="modal-modal-description" sx={{ mt: 2 }}>{launch_site.site_name}</Typography>
-                            <CardMedia component="img" height="100" width="100" image={ships.image} alt={ships.id}/>
+                            <Typography id="modal-modal-description" sx={{ mt: 2 }}>{launch_site.site_name_long}</Typography>
+                            <Typography id="modal-modal-description" >{rocket.rocket_name}</Typography>
+                            <img style={{ height: 420, width: '100%' }} src={links.flickr_images} alt="rockets"/>
+                           
                         </Box>
                     ))
+                  
                     }
                 </div>
             </Modal>
         </div>
+        
     )
 }
 

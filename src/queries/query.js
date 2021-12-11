@@ -25,26 +25,18 @@ export const LoadMission1 = gql`
 query LoadMission1($launch:Date)
 {
   launchesPast(limit:1 ,find: { launch_date_local:$launch }) {
-    mission_name 
+    mission_name
     launch_site {
-      site_id
-      site_name
+      site_name_long
     }
     links {
-        flickr_images
-      }
-    launch_date_local
-    id
-    mission_id
-    ships{
-      image
-      id
+      flickr_images
     }
     rocket {
-      rocket {
-        id
-      }
+      rocket_name
     }
+    id
+  
   }
 }
 
