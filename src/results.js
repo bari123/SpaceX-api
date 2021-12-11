@@ -25,7 +25,7 @@ const UseLazyGetQuery = ({ closeModal, datas1 }) => {
     });
 
 
-    if (loading) { return <div><p>Loading...</p></div>; }
+    if (loading) { return <div><p>Loading....</p></div>; }
     if (error) { return <div><p>eror</p></div> }
 
     return (
